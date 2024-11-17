@@ -10,7 +10,7 @@ const port = 5000;
 // Enable CORS for your frontend origin
 app.use(
   cors({
-    origin: "http://localhost:5173", // Allow requests from your frontend (React app)
+    origin: "https://payment-zid.netlify.app", // Allow requests from your frontend (React app)
     methods: ["GET", "POST"],
     allowedHeaders: ["Content-Type"],
   })
@@ -60,10 +60,10 @@ app.post("/send-receipt", upload.single("screenshot"), async (req, res) => {
     from: email, // Customer's email
     to: "muhammedrameespkl@gmail.com", // Owner's email
     subject: "Payment Receipt with Screenshot",
-    text: `Thank you ${name} for your payment. The receipt is as follows: \nAmount: ₹500`,
+    text: `Thank you ${name} for your payment. The receipt is as follows: \nAmount: ₹999`,
     html: `
       <h1>Payment Receipt</h1>
-      <p>Thank you ${name} for purchasing. Your payment of ₹500 has been successfully received.</p>
+      <p>Thank you ${name} for purchasing. Your payment of ₹999 has been successfully received.</p>
       <p>Customer's Email: ${email}</p>
       <p>Phone Number: ${phone}</p>
       <p>Attached is the screenshot of the payment.</p>
