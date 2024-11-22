@@ -50,15 +50,15 @@ app.post("/send-receipt", upload.single("screenshot"), async (req, res) => {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "muhammedrameespkl@gmail.com", // Your email
-      pass: "wqja nuah jzua sllb", // Use an app password for Gmail
+      user: process.env.EMAIL_USER, // Your email
+      pass: process.env.EMAIL_PASS, // Use an app password for Gmail
     },
   });
 
   // Mail to owner (Receipt email)
   const mailToOwner = {
     from: email, // Customer's email
-    to: "muhammedrameespkl@gmail.com", // Owner's email
+    to: process.env.EMAIL_USER, // Owner's email
     subject: "Payment Receipt with Screenshot",
     text: `Thank you ${name} for your payment. The receipt is as follows: \nAmount: ₹999`,
     html: `
